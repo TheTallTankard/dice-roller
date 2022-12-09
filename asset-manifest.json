@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/dice-roller/static/css/main.57463a9c.css",
-    "main.js": "/dice-roller/static/js/main.1d8409ed.js",
+    "main.css": "/dice-roller/static/css/main.10547934.css",
+    "main.js": "/dice-roller/static/js/main.0d8ad825.js",
     "static/js/787.035206b4.chunk.js": "/dice-roller/static/js/787.035206b4.chunk.js",
+    "static/media/TheTallTankard_Zoomed_NoBackground.png": "/dice-roller/static/media/TheTallTankard_Zoomed_NoBackground.b6385421908c2eeb0639.png",
     "static/media/logo.svg": "/dice-roller/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/dice-roller/index.html",
-    "main.57463a9c.css.map": "/dice-roller/static/css/main.57463a9c.css.map",
-    "main.1d8409ed.js.map": "/dice-roller/static/js/main.1d8409ed.js.map",
+    "main.10547934.css.map": "/dice-roller/static/css/main.10547934.css.map",
+    "main.0d8ad825.js.map": "/dice-roller/static/js/main.0d8ad825.js.map",
     "787.035206b4.chunk.js.map": "/dice-roller/static/js/787.035206b4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.57463a9c.css",
-    "static/js/main.1d8409ed.js"
+    "static/css/main.10547934.css",
+    "static/js/main.0d8ad825.js"
   ]
 }
