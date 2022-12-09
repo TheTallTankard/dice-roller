@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Die.css';
+import '../../styles/DiceBlock.css';
 
 class Die extends React.Component {
     constructor(){
@@ -16,7 +16,11 @@ class Die extends React.Component {
     }
 
     roll() {
-        return Math.floor(Math.random() * parseInt(this.props.sides)) + 1;
+        let runSum = 0;
+        for (let i = 0; i < this.props.numOfDice; i++){
+            runSum += Math.floor(Math.random() * parseInt(this.props.sides)) + 1;
+        }
+        return runSum;
     }
 
     handleClick(){

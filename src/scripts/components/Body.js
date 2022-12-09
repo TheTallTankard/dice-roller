@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
 import logo from '../../logo.svg';
 import '../../styles/Body.css';
+import DiceBlock from './DiceBlock'
 import Die from './Die'
 import Result from './Result'
 
@@ -23,13 +24,13 @@ class Body extends React.Component {
         <Row>
           <Col>
             <Stack>
-              <Die sides="4" onRoll={this.updateResult}></Die>
-              <Die sides="6" onRoll={this.updateResult}></Die>
-              <Die sides="8" onRoll={this.updateResult}></Die>
-              <Die sides="10" onRoll={this.updateResult}></Die>
-              <Die sides="12" onRoll={this.updateResult}></Die>
-              <Die sides="20" onRoll={this.updateResult}></Die>
-              <Die sides="100" onRoll={this.updateResult}></Die>
+              <DiceBlock sides="4" onRoll={this.updateResult}></DiceBlock>
+              <DiceBlock sides="6" onRoll={this.updateResult}></DiceBlock>
+              <DiceBlock sides="8" onRoll={this.updateResult}></DiceBlock>
+              <DiceBlock sides="10" onRoll={this.updateResult}></DiceBlock>
+              <DiceBlock sides="12" onRoll={this.updateResult}></DiceBlock>
+              <DiceBlock sides="20" onRoll={this.updateResult}></DiceBlock>
+              <DiceBlock sides="100" onRoll={this.updateResult}></DiceBlock>
             </Stack>
           </Col>
           <Col>

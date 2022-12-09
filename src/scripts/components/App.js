@@ -7,10 +7,6 @@ import Footer from './Footer';
 class App extends React.Component {
   constructor(){
     super();
-    this.updateResult = this.updateResult.bind(this);
-    this.state = {
-      result: 0
-    }
   }
 
   render(){
@@ -22,10 +18,6 @@ class App extends React.Component {
       </div>
 
     );
-  }
-
-  updateResult(rollResult){
-    this.setState((prevState) => ({ result: rollResult}))
   }
 }
 
