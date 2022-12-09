@@ -7,6 +7,7 @@ import logo from '../../logo.svg';
 import '../../styles/App.css';
 import Die from './Die'
 import Result from './Result'
+import Footer from './Footer'
 
 class App extends React.Component {
   constructor(){
@@ -38,7 +39,9 @@ class App extends React.Component {
             </Stack>
           </Col>
         </Row>
+        <Footer></Footer>
       </Container>
+
     );
   }
 
