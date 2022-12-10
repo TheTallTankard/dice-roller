@@ -16,16 +16,16 @@ class Die extends React.Component {
     }
 
     roll() {
-        let runSum = 0;
+        var rolls = [];
         for (let i = 0; i < this.props.numOfDice; i++){
-            runSum += Math.floor(Math.random() * parseInt(this.props.sides)) + 1;
+            rolls.push(Math.floor(Math.random() * parseInt(this.props.sides)) + 1);
         }
-        return runSum;
+        return rolls;
     }
 
     handleClick(){
-        let result = this.roll();
-        this.props.onRoll(result);
+        let results = this.roll();
+        this.props.onRoll(results);
     }
 
 

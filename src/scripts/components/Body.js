@@ -14,7 +14,8 @@ class Body extends React.Component {
     super();
     this.updateResult = this.updateResult.bind(this);
     this.state = {
-      result: 0
+      result: 0,
+      breakdown: ""
     }
   }
 
@@ -35,7 +36,7 @@ class Body extends React.Component {
           </Col>
           <Col>
             <Stack>
-              <Result result={this.state.result}></Result>
+              <Result result={this.state.result} breakdown={this.state.breakdown}></Result>
             </Stack>
           </Col>
         </Row>
@@ -44,7 +45,16 @@ class Body extends React.Component {
   }
 
   updateResult(rollResult){
-    this.setState((prevState) => ({ result: rollResult}))
+    let breakdownString = "";
+    let sum = 0;
+    for (let i = 0; i < rollResult.length; i++){
+      breakdownString += rollResult[i] + " + ";
+      sum += rollResult[i];
+    }
+    breakdownString = breakdownString.slice(0, -3);
+
+    this.setState((prevState) => ({ breakdown: breakdownString}))
+    this.setState((prevState) => ({ result: sum}))
   }
 }
 
