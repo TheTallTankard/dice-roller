@@ -10,7 +10,7 @@ class Result extends React.Component {
         let resultBoxText = this.props.breakdown + " = " + this.props.result;
         return (
             <div id="result-box" className='Result'>
-                <textarea readOnly rows="4"
+                <textarea readOnly rows="10"
                  value={resultBoxText} ></textarea>
             </div>
         )

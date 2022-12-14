@@ -1,5 +1,5 @@
 .DiceBlock {
-    font-size: 3vmin;
+    font-size: inherit;
 }
 
 .DiceBlock .col {
@@ -7,19 +7,22 @@
 }
 
 .DiceBlock .num-of-dice {
+    color: white;
     text-align: right;
 }
 
 .DiceBlock .inc-dec-control {
-    text-align: left;
+    text-align: center;
 }
 
-.DiceBlock .inc-dec-control input {
-    width: 30%;
+.DiceBlock .inc-dec-control button {
+    font-weight: bold;
+    background-color: white;
+    width: 45%;
     margin: 2%;
 }
 
-.Die input {
+.Die button {
     width: 80%;
     margin: 2%;
 }

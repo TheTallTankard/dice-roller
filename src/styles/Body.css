@@ -1,5 +1,4 @@
 .Body.container-fluid {
-    height: 50vh;
-    padding-top: 5%;
-    margin-bottom: 10%;
+    padding-top: 10px;
+    margin-bottom: 20px;
 }

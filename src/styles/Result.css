@@ -1,7 +1,6 @@
-.Result#result-box input {
-    width: 80%;
+.Result#result-box textarea {
+    width: 90%;
     height: inherit;
     text-align: center;
-    font-size: 1vmin;
-    margin: 10%;
+    font-size: inherit;
 }

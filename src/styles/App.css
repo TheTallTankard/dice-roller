@@ -30,3 +30,19 @@
     transform: rotate(360deg);
   }
 }
+
+.App button {
+  font-weight: bold;
+  color: black;
+  background-color: white;
+  border-color: transparent;
+  margin: 2%;
+}
+
+.App button:hover {
+  font-weight: bold;
+  color: black;
+  background-color: white;
+  border-color: transparent;
+  margin: 2%;
+}

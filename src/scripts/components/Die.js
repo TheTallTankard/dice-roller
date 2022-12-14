@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 import '../../styles/DiceBlock.css';
 
 class Die extends React.Component {
@@ -10,7 +11,7 @@ class Die extends React.Component {
     render() {
         return (
             <div className='Die'>
-                <input type="button" value={"D" + this.props.sides} onClick={this.handleClick}></input>
+                <Button onClick={this.handleClick}>{"D" + this.props.sides}</Button>
             </div>
         )
     }
