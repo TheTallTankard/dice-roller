@@ -1,4 +1,5 @@
 .Body.container-fluid {
     padding-top: 10px;
     margin-bottom: 20px;
+    max-width: 1200px;
 }

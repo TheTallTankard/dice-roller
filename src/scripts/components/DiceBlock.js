@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import Die from './Die'
 import '../../styles/DiceBlock.css'
 
 
@@ -18,7 +17,7 @@ class DiceBlock extends React.Component {
         return(
             <tr className="DiceBlock">
                 <td className="num-of-dice">{this.state.numOfDice + " x"}</td>
-                <td><Die sides={this.props.sides} numOfDice={this.state.numOfDice} onRoll={this.props.onRoll}></Die></td>
+                <td className="die-type">{"D" + this.props.sides}</td>
                 <td className="inc-dec-control">
                     <Button onClick={this.increase}>+</Button>
                     <Button onClick={this.decrease}>-</Button>
@@ -27,14 +26,19 @@ class DiceBlock extends React.Component {
         )
     }
 
-    increase(){
-        this.setState((prevState) => ({numOfDice: this.state.numOfDice + 1}))
+    increase(e){
+        this.changeNumOfDice(this.state.numOfDice + 1);
     }
 
     decrease(){
         if (this.state.numOfDice > 0){
-            this.setState((prevState) => ({numOfDice: this.state.numOfDice - 1}))
+            this.changeNumOfDice(this.state.numOfDice - 1);
         }
+    }
+
+    changeNumOfDice(newNumOfDice){
+        this.setState((prevState) => ({numOfDice: newNumOfDice}))
+        this.props.onNumOfDiceChange(this.props.sides, newNumOfDice)
     }
     
 }

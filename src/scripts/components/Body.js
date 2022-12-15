@@ -13,34 +13,47 @@ class Body extends React.Component {
   constructor(){
     super();
     this.updateResult = this.updateResult.bind(this);
-    this.rollAll = this.rollAll.bind(this);
+    this.updateConfiguredRoll = this.updateConfiguredRoll.bind(this);
+    this.roll = this.roll.bind(this);
     this.state = {
-      result: 0,
-      breakdown: ""
+      configuredRoll : {
+        4: 0,
+        6: 0,
+        8: 0,
+        10: 0,
+        12: 0,
+        20: 0,
+        100: 0
+      },
+      breakdown: "",
+      result: 0
     }
   }
 
   render(){
+    const {configuredRoll, breakdown, result} = this.state;
     return (
       <Container fluid className="Body">
         <Row>
-          <Col md={4}>
-            <Table>
-              <DiceBlock sides="4" onRoll={this.updateResult}></DiceBlock>
-              <DiceBlock sides="6" onRoll={this.updateResult}></DiceBlock>
-              <DiceBlock sides="8" onRoll={this.updateResult}></DiceBlock>
-              <DiceBlock sides="10" onRoll={this.updateResult}></DiceBlock>
-              <DiceBlock sides="12" onRoll={this.updateResult}></DiceBlock>
-              <DiceBlock sides="20" onRoll={this.updateResult}></DiceBlock>
-              <DiceBlock sides="100" onRoll={this.updateResult}></DiceBlock>
+          <Col md={3}>
+            <Table borderless>
+              <tbody>
+                <DiceBlock sides="4" onRoll={this.updateResult} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
+                <DiceBlock sides="6" onRoll={this.updateResult} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
+                <DiceBlock sides="8" onRoll={this.updateResult} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
+                <DiceBlock sides="10" onRoll={this.updateResult} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
+                <DiceBlock sides="12" onRoll={this.updateResult} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
+                <DiceBlock sides="20" onRoll={this.updateResult} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
+                <DiceBlock sides="100" onRoll={this.updateResult} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
+              </tbody>
             </Table>
           </Col>
-          <Col md={8}>
+          <Col md={9}>
             <div>
-              <Button onClick={this.rollAll}>Roll all</Button>
+              <Button onClick={this.roll}>Roll</Button>
             </div>
             <div>
-              <Result result={this.state.result} breakdown={this.state.breakdown}></Result>
+              <Result configuredRoll={configuredRoll} breakdown={breakdown} result={result}></Result>
             </div>
           </Col>
         </Row>
@@ -61,8 +74,48 @@ class Body extends React.Component {
     this.setState((prevState) => ({ result: sum}))
   }
 
-  rollAll(){
+  updateConfiguredRoll(sides, numOfDice){
+    let newConfiguredRoll = this.state.configuredRoll;
+    newConfiguredRoll[sides] = numOfDice;
 
+    this.setState((prevState) => ({
+      configuredRoll: newConfiguredRoll,
+      breakdown: "",
+      result: 0
+    }));
+
+  }
+
+  roll(){
+    let breakdown = "";
+    let result = 0;
+    for (const [k, v] of Object.entries(this.state.configuredRoll)){
+      if (v > 0){
+        let singleDieArray = this.rollSingleDieType(v, k);
+        breakdown += `(${singleDieArray.join("+")}) + `;
+        result += this.sumNumbers(singleDieArray);
+      }
+    }
+    if (breakdown.length > 3){
+      breakdown = breakdown.slice(0, -3);
+    }
+
+    this.setState((prevState) => ({
+      breakdown: breakdown,
+      result: result
+    }))
+  }
+
+  rollSingleDieType(numOfDice, sides){
+      var rolls = [];
+      for (let i = 0; i < numOfDice; i++){
+          rolls.push(Math.floor(Math.random() * parseInt(sides)) + 1);
+      }
+      return rolls;
+  }
+
+  sumNumbers(array){
+    return array.reduce((a, b) => (a + b), 0);
   }
 }
 
