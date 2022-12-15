@@ -15,6 +15,7 @@ class Body extends React.Component {
     this.updateResult = this.updateResult.bind(this);
     this.updateConfiguredRoll = this.updateConfiguredRoll.bind(this);
     this.roll = this.roll.bind(this);
+    this.clear = this.clear.bind(this);
     this.state = {
       configuredRoll : {
         4: 0,
@@ -38,22 +39,25 @@ class Body extends React.Component {
           <Col md={3}>
             <Table borderless>
               <tbody>
-                <DiceBlock sides="4" onRoll={this.updateResult} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
-                <DiceBlock sides="6" onRoll={this.updateResult} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
-                <DiceBlock sides="8" onRoll={this.updateResult} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
-                <DiceBlock sides="10" onRoll={this.updateResult} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
-                <DiceBlock sides="12" onRoll={this.updateResult} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
-                <DiceBlock sides="20" onRoll={this.updateResult} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
-                <DiceBlock sides="100" onRoll={this.updateResult} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
+                <DiceBlock sides={4} numOfDice={configuredRoll[4]} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
+                <DiceBlock sides={6} numOfDice={configuredRoll[6]} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
+                <DiceBlock sides={8} numOfDice={configuredRoll[8]} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
+                <DiceBlock sides={10} numOfDice={configuredRoll[10]} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
+                <DiceBlock sides={12} numOfDice={configuredRoll[12]} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
+                <DiceBlock sides={20} numOfDice={configuredRoll[20]} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
+                <DiceBlock sides={100} numOfDice={configuredRoll[100]} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
               </tbody>
             </Table>
           </Col>
           <Col md={9}>
+            <div className="result-block">
             <div>
+              <Button onClick={this.clear}>Clear</Button>
               <Button onClick={this.roll}>Roll</Button>
             </div>
             <div>
               <Result configuredRoll={configuredRoll} breakdown={breakdown} result={result}></Result>
+            </div>
             </div>
           </Col>
         </Row>
@@ -117,6 +121,23 @@ class Body extends React.Component {
   sumNumbers(array){
     return array.reduce((a, b) => (a + b), 0);
   }
+
+  clear(){
+    this.setState((prevState) => ({
+      configuredRoll : {
+        4: 0,
+        6: 0,
+        8: 0,
+        10: 0,
+        12: 0,
+        20: 0,
+        100: 0
+      },
+      breakdown: "",
+      result: 0
+    }))
+  }
+
 }
 
 export default Body;
