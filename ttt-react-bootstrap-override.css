@@ -1,0 +1,10 @@
+.btn-primary {
+    color: var(--color-3);
+    background-color: var(--color-5);
+    border: transparent;
+    font-weight: bold;
+}
+
+.table {
+    color: inherit;
+}
