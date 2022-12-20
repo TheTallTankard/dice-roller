@@ -1,0 +1,25 @@
+:root {
+    /* From coolers palette: https://coolors.co/palette/f0ead2-dde5b6-adc178-a98467-6c584c */
+    /* --color-1: #F0EAD2;
+    --color-2: #DDE5B6;
+    --color-3: #ADC178;
+    --color-4: #A98467;
+    --color-5: #6C584C; */
+
+    /* Generated coolers palette: https://coolors.co/1d264a-a25461-13152c-747c86-e9776e */
+    --color-1: #1D264A;
+    --color-2: #87BBA2;
+    --color-3: #55828B;
+    --color-4: #3B6064;
+    --color-5: #364958;
+}
+
+.App {
+    color: black;
+    background-color: white;
+}
+
+.App textarea {
+    color: var(--color-3);
+    background-color: var(--color-1);
+}

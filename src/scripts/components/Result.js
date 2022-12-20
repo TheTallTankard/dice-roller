@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../styles/Result.css';
 
 class Result extends React.Component {
     constructor(){
@@ -10,7 +9,7 @@ class Result extends React.Component {
         let resultBoxText = `${this.configuredRollToRollCode()}\n\n${this.props.breakdown}\n\nTotal:\t${this.props.result}`;
         return (
             <div id="result-box" className='Result'>
-                <textarea readOnly rows="9" value={resultBoxText} ></textarea>
+                <textarea readOnly rows="8" value={resultBoxText} ></textarea>
             </div>
         )
     }

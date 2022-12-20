@@ -4,8 +4,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
-import logo from '../../logo.svg';
-import '../../styles/Body.css';
 import DiceBlock from './DiceBlock'
 import Result from './Result'
 
@@ -36,7 +34,7 @@ class Body extends React.Component {
     return (
       <Container fluid className="Body">
         <Row>
-          <Col md={3}>
+          <Col md={4}>
             <Table borderless>
               <tbody>
                 <DiceBlock sides={4} numOfDice={configuredRoll[4]} onNumOfDiceChange={this.updateConfiguredRoll}></DiceBlock>
@@ -49,11 +47,11 @@ class Body extends React.Component {
               </tbody>
             </Table>
           </Col>
-          <Col md={9}>
+          <Col md={8}>
             <div className="result-block">
             <div>
-              <Button onClick={this.clear}>Clear</Button>
-              <Button onClick={this.roll}>Roll</Button>
+              <Button onClick={this.clear}>CLEAR</Button>
+              <Button onClick={this.roll}>ROLL</Button>
             </div>
             <div>
               <Result configuredRoll={configuredRoll} breakdown={breakdown} result={result}></Result>

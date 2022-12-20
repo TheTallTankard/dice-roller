@@ -1,48 +1,27 @@
-.App {
-  text-align: center;  
-  background-color: #282c34;
-  min-height: 100vh;
-  max-width: 100%;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.result-block button {
+  width: 10vw;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.DiceBlock {
+  font-size: inherit;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.DiceBlock .num-of-dice {
+  text-align: right;
 }
 
-.App-link {
-  color: #61dafb;
+.DiceBlock .die-type{
+  text-align: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.App button {
-  font-weight: bold;
-  color: black;
-  background-color: white;
-  border-color: transparent;
+.DiceBlock .inc-dec-control button {
+  width: 45%;
   margin: 2%;
 }
 
-.App button:hover {
-  font-weight: bold;
-  color: black;
-  background-color: white;
-  border-color: transparent;
-  margin: 2%;
+.Result#result-box textarea {
+  width: 90%;
+  height: inherit;
+  text-align: center;
+  font-size: inherit;
 }
